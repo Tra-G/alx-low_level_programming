@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - output all single digit number of base 10
- * Return: Always 0
+ * main - Entry point
+ *
+ * Return: Always 0 (successful)
  */
 
 int main(void)
