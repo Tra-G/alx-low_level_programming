@@ -1,19 +1,17 @@
-File  18 lines (15 sloc)  221 Bytes
 #include "main.h"
 
 /**
-* print_alphabet - Print the alphabet in lowercase.
-*using ASCII CODE
-* Return: void.
-*/
+ * print_alphabet - prints alphabet in lower case
+ *
+ * Return: void
+ */
 
 void print_alphabet(void)
 {
-	int i;
+	int ii;
 
-	for (i = 97; i < 123; i++)
-		{
-		_putchar(i);
-		}
-		_putchar('\n');
+	for (ii = 'a'; ii <= 'z'; ii++)
+		_putchar(ii);
+	_putchar('\n');
 }
+
