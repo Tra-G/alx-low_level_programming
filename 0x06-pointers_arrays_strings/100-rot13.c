@@ -1,39 +1,30 @@
 #include "main.h"
 
 /**
- * _atoi - Converts a string to an integer
+ * rot13 - encodes a string using rot13.
  * @s: The string
  *
- * Return: The converted integer
+ * Return: The string
  */
-int _atoi(char *s)
+char *rot13(char *s)
 {
-	int i, value, sign;
-	char c;
+	int i, j;
+	char r[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char boolean;
 
-	i = 0;
-	value = 0;
-	sign = -1;
-	while (s[i] != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		c = s[i];
-		if (c == '-')
-			sign *= -1;
-		else if (c >= '0' && c <= '9')
+		boolean = 0;
+		for (j = 0; alpha[j] != '\0' && boolean == 0; j++)
 		{
-			if (value < 0)
-				value = value * 10 - (c - '0');
-			else
-				value = (c - '0') * -1;
-
-			/* Make sure the next char is a number */
-			if (s[i + 1] < '0' || s[i + 1] > '9')
-				break;
+			if (s[i] == alpha[j])
+			{
+				s[i] = r[j];
+				boolean = 1;
+			}
 		}
-		i++;
 	}
-	if (sign < 0)
-		value *= -1;
 
-	return (value);
+	return (s);
 }
